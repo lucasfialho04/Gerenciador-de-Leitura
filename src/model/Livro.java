@@ -1,6 +1,6 @@
 package model;
 
-public class Livro {
+public class Livro implements Comparable<Livro> {
     private int id;
     private String titulo;
     private String autor;
@@ -23,6 +23,7 @@ public class Livro {
     public int getId() {
         return id;
     }
+    
 
     public String getTitulo() {
         return titulo;
@@ -61,6 +62,24 @@ public class Livro {
 
     public void setStatus(StatusLeitura status) {
         this.status = status;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+    @Override
+    public int compareTo(Livro o) {
+        if (this.id < o.getId()) {
+            return -1;
+        }else if (this.id > o.getId()) {
+            return 1;
+        }else{
+            return 0;
+        }
+        
     }
 
     
